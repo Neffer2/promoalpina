@@ -9,9 +9,13 @@
                 <li>
                     <a href="{{ route('registrar') }}">Registrar</a>
                 </li>
+                <br>
+                <br>
                 <li>
                     <a href="{{ route('cargar_factura') }}">Cargar Factura</a>
                 </li>
+                <br>
+                <br>
                 <li>
                     <a href="{{ route('consultar_puntos') }}">Consultar puntos</a>
                 </li>
