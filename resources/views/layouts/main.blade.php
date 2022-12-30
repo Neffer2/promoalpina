@@ -4,23 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" >
     <title>@yield('title')</title>
+    @livewireStyles
     <style>
-        .container {
-            width: 800px;
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            margin: 10px;
+        * {
+            box-sizing: border-box;
         }
     </style>
-    @livewireStyles
 </head> 
-<body>
+<body> 
     @if (session('success'))
     <ol>
         <li style="color: yellowgreen;">{{ session('success') }}</li>
@@ -33,12 +27,18 @@
             @endforeach
         </ol>
     @endif
-    @yield('content')
+    @yield('content') 
     <br><br>
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button>Salir</button>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ route('logout') }}" method="POST" class="d-flex justify-content-center">
+                    @csrf
+                    <button>Cerrar sesion</button>
+                </form>
+            </div>
+        </div>
+    </div>
     @livewireScripts
 </body>
 </html> 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Participante;
-use App\Models\Ciudad;
+use App\Models\City;
 
 class HomeController extends Controller
 {
@@ -13,7 +13,7 @@ class HomeController extends Controller
     }
 
     public function show_registrar (){
-        $ciudades = Ciudad::all();
+        $ciudades = City::all();
         return view('actions.registrar', ['ciudades' => $ciudades]);
     }
 

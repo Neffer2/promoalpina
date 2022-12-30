@@ -4,7 +4,6 @@
     @endsection
 
     @section('content')
-        <div class="container">
-            Cargar factura
-        </div>
+        <br><br><br><br><br>
+        @livewire('cargar-factura')
     @endsection
