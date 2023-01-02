@@ -16,9 +16,9 @@
 </head> 
 <body> 
     @if (session('success'))
-    <ol>
-        <li style="color: yellowgreen;">{{ session('success') }}</li>
-    </ol>
+        <ol>
+            <li style="color: yellowgreen;">{{ session('success') }}</li>
+        </ol>
     @endif
     @if ($errors->any())
         <ol>
