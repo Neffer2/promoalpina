@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Registro_producto extends Model
+class Registro_factura extends Model
 {
     use HasFactory;
-    protected $table = "registros_producto";
+    protected $table = "registros_factura";
 
-    protected $fillabel = [
-        'factura_id',
+    protected $fillable = [
+        'cod_factura',
         'participante_id',
-        'producto_id',
-        'valor'
+        'puntos_sumados',
+        'foto_factura'
     ];
 }

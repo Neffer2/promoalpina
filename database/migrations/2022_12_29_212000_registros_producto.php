@@ -18,7 +18,7 @@ class RegistrosProducto extends Migration
 
             // Id factura
             $table->foreignId('factura_id');
-            $table->foreign('factura_id')->references('id')->on('registros_factura');
+            $table->foreign('factura_id')->references('id')->on('registros_factura'); 
 
             // Id particiapnte
             $table->foreignId('participante_id');
@@ -27,6 +27,8 @@ class RegistrosProducto extends Migration
             // Id producto 
             $table->foreignId('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos');
+
+            $table->decimal('valor', 10, 2);
 
             $table->timestamps();
         });

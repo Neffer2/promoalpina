@@ -16,16 +16,18 @@
 </head> 
 <body> 
     @if (session('success'))
-        <ol>
-            <li style="color: yellowgreen;">{{ session('success') }}</li>
-        </ol>
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
     @endif
     @if ($errors->any())
-        <ol>
-            @foreach ($errors->all() as $error)
-                <li style="color:red;">{{ $error }}</li>
-            @endforeach
-        </ol>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
     @yield('content') 
     <br><br>

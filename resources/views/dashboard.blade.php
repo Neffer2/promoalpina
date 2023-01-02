@@ -13,7 +13,7 @@
                             <h4>Registrar</h4>
                         </div>
                         <div class="card-body">
-                            <a href="{{ route('registrar') }}">Registrar</a>
+                            <a href="{{ route('registrar') }}">Registrar participante</a>
                         </div>
                     </div>
                 </div>
