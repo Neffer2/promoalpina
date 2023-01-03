@@ -57,7 +57,6 @@ class ConsultarPuntos extends Component
     /*Define la variable publica $this->participante con la coleccion del participante que llega por parametro.
     * ¿Por qué? Porque Livewire no permite enviar un pagination con una variable púbica.
     */
-
     public function getFacturas($participante){
         $this->participante = $participante;
     }

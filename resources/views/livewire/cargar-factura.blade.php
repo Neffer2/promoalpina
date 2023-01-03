@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col md-6">
                     <div class="form-group"> 
-                        <label for=""><b>Documento</b></label> 
+                        <label for=""><b>Documento:</b></label> 
                         <input type="text" class="form-control @error('documento') is-invalid @endif" wire:model.lazy="documento" required>
                         @error('documento') 
                             <div class="invalid-feedback">
@@ -28,7 +28,7 @@
                 </div> 
                 <div class="col md-6">
                     <div class="form-group">
-                        <label for=""><b>Cod Factura</b></label> 
+                        <label for=""><b>Cod Factura:</b></label> 
                         <input type="text" class="form-control @error('cod_factura') is-invalid @endif" wire:model.lazy="cod_factura" required>
                         @error('cod_factura') 
                             <div class="text-danger">
@@ -47,7 +47,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for=""><b>Productos</b></label>
+                                            <label for=""><b>Productos:</b></label>
                                             <select class="form-control @error('producto') is-invalid @endif" required wire:model="producto">
                                                 <option value="">Seleccionar</option>
                                                 @foreach ($productos as $producto)
@@ -63,7 +63,7 @@
                                     </div> 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for=""><b>Valor</b></label>
+                                            <label for=""><b>Valor:</b></label>
                                             <input type="number" class="form-control @error('valor') is-invalid @endif" placeholder="$" wire:model="valor" required>                                
                                             @error('valor')
                                                 <div class="text-danger">
@@ -105,7 +105,7 @@
             <hr>
             <div class="row"> 
                 <div class="col-md-6">
-                    <label for=""><b>Foto factura</b></label> 
+                    <label for=""><b>Foto factura:</b></label> 
                     <input type="file" class="form-control @error('foto') is-invalid @endif" required wire:model="foto" accept="image/*">
                     @error('foto')
                         <div class="text-danger">
