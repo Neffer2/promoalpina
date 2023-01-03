@@ -45,14 +45,14 @@
                                             <td><a href="{{ $factura->foto_factura }}" target="_blank">Factura</a></td>
                                             <td>{{ $factura->user_admin->name }}</td>
                                             <td>
-                                                <a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                <a class="btn" data-bs-toggle="collapse" href="#collapseExample{{ $factura->id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                                     🔻
                                                 </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="6">
-                                                <div class="collapse" id="collapseExample">
+                                                <div class="collapse" id="collapseExample{{ $factura->id }}">
                                                     <div class="card card-body">
                                                         @livewire('get-productos', ['factura_id' => "$factura->id"])
                                                     </div>
@@ -64,6 +64,11 @@
                             </table>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    @if (!empty($facturas))
+                        {{ $facturas->links() }}                                    
+                    @endif
                 </div>
             </div>
         </div> 
