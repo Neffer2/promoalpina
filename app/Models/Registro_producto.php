@@ -16,4 +16,9 @@ class Registro_producto extends Model
         'producto_id',
         'valor'
     ];
+
+    public function product_name()
+    {
+        return $this->hasOne(Producto::class, 'id', 'producto_id');
+    }
 }
