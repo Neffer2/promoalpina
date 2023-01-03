@@ -32,7 +32,7 @@ class ConsultarPuntos extends Component
             $facturas = Registro_factura::select('id', 'cod_factura', 'participante_id', 'puntos_sumados', 'foto_factura', 'user_id', 'created_at')
                                                 ->where('participante_id', $this->participante->id)
                                                 ->orderBy('created_at', 'desc')
-                                                ->paginate(1);
+                                                ->paginate(8);
 
             return view('livewire.consultar-puntos', ['facturas' => $facturas]);
         }

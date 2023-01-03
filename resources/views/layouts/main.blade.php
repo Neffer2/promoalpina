@@ -27,16 +27,22 @@
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        </div>
+        </div> 
     @endif
     @yield('content') 
     <br><br>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <a class="btn btn-primary" href="{{ route('dashboard') }}">↩️ Volver</a>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-12">
                 <form action="{{ route('logout') }}" method="POST" class="d-flex justify-content-center">
                     @csrf
-                    <button>Cerrar sesion</button>
+                    <button class="btn btn-danger">Cerrar sesion</button>
                 </form>
             </div>
         </div>
