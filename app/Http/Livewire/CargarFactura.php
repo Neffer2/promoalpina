@@ -23,6 +23,7 @@ class CargarFactura extends Component
     public $producto;
     public $puntos = 0;
     public $foto;
+    public $cantidad = 1;
     
 
     // Useful vars
@@ -63,6 +64,10 @@ class CargarFactura extends Component
         $this->validate(['cod_factura' => ['required', 'unique:registros_factura']]);
     }
 
+    public function updatedCantidad() {
+        $this->validate(['cantidad' => ['required', 'numeric' ,'min:1', 'max:30']]);
+    }
+
     // Actions
     public function puntosCounter (){
         $puntos = 0;
@@ -84,13 +89,18 @@ class CargarFactura extends Component
         }
 
         $participante = Participante::select('id')->where('document', $this->documento)->first();
-        array_push($this->newProductos, [
-            'factura_id' => $this->cod_factura,
-            'participante_id' => $participante->id,
-            'producto_id' => $this->producto,
-            'producto_description' => $this->productos->find($this->producto)->description,
-            'valor' => $this->valor
-        ]);
+
+        $cont = 0;
+        while ($cont < $this->cantidad){
+            $cont++;
+            array_push($this->newProductos, [
+                'factura_id' => $this->cod_factura,
+                'participante_id' => $participante->id,
+                'producto_id' => $this->producto,
+                'producto_description' => $this->productos->find($this->producto)->description,
+                'valor' => $this->valor
+            ]);
+        }
         
         $this->valor = 0;
         $this->puntosCounter();

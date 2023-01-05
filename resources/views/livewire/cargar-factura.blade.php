@@ -43,7 +43,7 @@
                 <div class="row"> 
                     <div class="col-md-3">
                         <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-10"> 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -81,6 +81,17 @@
                                             <label for=""><b>Valor:</b></label>
                                             <input type="number" class="form-control @error('valor') is-invalid @endif" placeholder="$" wire:model="valor" required>                                
                                             @error('valor')
+                                                <div class="text-danger">
+                                                    {{ $message }}
+                                                </div>
+                                            @endif                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for=""><b>Cantidad:</b></label>
+                                            <input type="number" class="form-control @error('cantidad') is-invalid @endif" placeholder="$" wire:model="cantidad" required>                                
+                                            @error('cantidad')
                                                 <div class="text-danger">
                                                     {{ $message }}
                                                 </div>

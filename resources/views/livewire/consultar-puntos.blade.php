@@ -51,10 +51,19 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            @php
+                                                $productos = \App\Models\Registro_producto::select('producto_id', 'valor')->where('factura_id', $factura->id)->get();
+                                            @endphp
                                             <td colspan="6">
                                                 <div class="collapse" id="collapseExample{{ $factura->id }}">
                                                     <div class="card card-body">
-                                                        @livewire('get-productos', ['factura_id' => "$factura->id"])
+                                                        <table class="table">
+                                                            @foreach ($productos as $producto)
+                                                                <tr>
+                                                                    <td>{{ $producto->product_name->description }} ...................................................... $ {{ $producto->valor }}</td>
+                                                                </tr>
+                                                            @endforeach  
+                                                        </table> 
                                                     </div>
                                                 </div>
                                             </td>

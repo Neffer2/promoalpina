@@ -20,7 +20,7 @@ class ConsultarPuntos extends Component
     public $puntos;
     public $name = ''; 
     public $participante;
-    public $productos = [];
+    public $productos = []; 
 
     //Las variables public no pueden ser paginations
     public function render()
@@ -30,9 +30,9 @@ class ConsultarPuntos extends Component
         */
         if (isset($this->participante)){
             $facturas = Registro_factura::select('id', 'cod_factura', 'participante_id', 'puntos_sumados', 'foto_factura', 'user_id', 'created_at')
-                                                ->where('participante_id', $this->participante->id)
-                                                ->orderBy('created_at', 'desc')
-                                                ->paginate(8);
+                                        ->where('participante_id', $this->participante->id)
+                                        ->orderBy('created_at', 'desc')
+                                        ->paginate(2);
 
             return view('livewire.consultar-puntos', ['facturas' => $facturas]);
         }
