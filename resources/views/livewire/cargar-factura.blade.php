@@ -40,7 +40,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="row">
+                <div class="row"> 
                     <div class="col-md-3">
                         <div class="row">
                             <div class="col-md-10">
@@ -50,8 +50,23 @@
                                             <label for=""><b>Productos:</b></label>
                                             <select class="form-control @error('producto') is-invalid @endif" required wire:model="producto">
                                                 <option value="">Seleccionar</option>
-                                                @foreach ($productos as $producto)
-                                                    <option value="{{ $producto->id }}"> {{ $producto->description }}</option>
+                                                @php
+                                                    $cadena = $productos[0]['cadena'];
+                                                @endphp
+                                                @foreach ($productos as $key => $producto)
+                                                    @if ($cadena != $producto->cadena || $key == 0)
+                                                        @php
+                                                            $cadena = $producto->cadena;
+                                                        @endphp
+                                                        <optgroup label="{{ $cadena }}">
+                                                    @endif
+                                                        <option value="{{ $producto->id }}"> {{ $producto->description }} - {{ $producto->cadena }}</option>
+                                                    @if ($cadena != $producto->cadena)
+                                                        @php
+                                                            $cadena = $producto->cadena;
+                                                        @endphp
+                                                        </optgroup>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                             @error('producto')
@@ -81,7 +96,7 @@
                         </div>
                     </div> 
                     <div class="col-md-9">
-                        <div class="row">
+                        <div class="row"> 
                             @foreach ($newProductos as $producto)
                                 <div class="col-md-3 mt-1 mb-1">
                                     <div class="card">

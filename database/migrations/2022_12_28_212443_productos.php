@@ -15,7 +15,9 @@ class Productos extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo_producto');
             $table->string('description');
+            $table->string('cadena');
             $table->timestamps();
         });
     }
