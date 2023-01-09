@@ -53,7 +53,7 @@ class CargarFactura extends Component
     }
 
     public function participanteExist (){
-        $check_documento = Participante::select('id')->where('document', $this->documento)->first();
+        $check_documento = Participante::select('id')->where('document', $this->DataEncrypt($this->documento))->first();
         if (is_null($check_documento)){
             return false;
         }
@@ -88,7 +88,7 @@ class CargarFactura extends Component
             return redirect()->back()->with('documentError', 'Éste participante no existe');
         }
 
-        $participante = Participante::select('id')->where('document', $this->documento)->first();
+        $participante = Participante::select('id')->where('document', $this->DataEncrypt($this->documento))->first();
 
         $cont = 0;
         while ($cont < $this->cantidad){
@@ -132,7 +132,7 @@ class CargarFactura extends Component
             'foto' => ['required', 'mimes:jpeg,jpg,png,gif|max:1000']
         ]);
 
-        $participante = Participante::select('id', 'puntos')->where('document', $this->documento)->first();
+        $participante = Participante::select('id', 'puntos')->where('document', $this->DataEncrypt($this->documento))->first();
 
         $registro_factura = new Registro_factura;
         $registro_factura->cod_factura = $this->cod_factura;
@@ -168,5 +168,15 @@ class CargarFactura extends Component
         $this->reset('puntos');
         $this->reset('foto');
         $this->reset('newProductos');
+    }
+
+    public function DataEncrypt ($value){
+        $ciphering = "AES-128-CTR";
+        $iv_length = openssl_cipher_iv_length($ciphering);
+        $options = 0;
+        $encryption_iv = '1234567891011121';
+        $encryption_key = "Bull-PromoAlpina.2023";
+        $encryption = openssl_encrypt($value, $ciphering, $encryption_key, $options, $encryption_iv);
+        return $encryption;
     }
 }
