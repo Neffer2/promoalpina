@@ -28,5 +28,5 @@ Route::get('/cargar_factura', [HomeController::class ,'cargar_factura'])->middle
 
 Route::get('/consultar_puntos', [HomeController::class ,'show_consultar_puntos'])->middleware(['auth'])->name('consultar_puntos');
 Route::post('/consultar_puntos', [HomeController::class ,'consultar_puntos'])->middleware(['auth'])->name('consultar_puntos');
-
+ 
 require __DIR__.'/auth.php';
